@@ -19,6 +19,10 @@ class BillsController < ApplicationController
 		end
 	end
 
+	def show
+		@bill = Bill.find(params[:id])
+	end
+
 	def bill_params
 		params.require(:bill).permit(:name, :price, :description, :bank_account, recipients_attributes: [:name, :email])
 	end
